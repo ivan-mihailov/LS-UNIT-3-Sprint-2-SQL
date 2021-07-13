@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/iamwe/Documents/09.Coding/Lambda_School/Data_Science/03.Unit_3/02.SQL/buddymove_holidayiq.sqlite3" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="145"/><column_width id="3" width="1388"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,6:mainreview"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="review" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="57"/><column index="2" value="73"/><column index="3" value="66"/><column index="4" value="89"/><column index="5" value="68"/><column index="6" value="75"/><column index="7" value="92"/><column index="8" value="60"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">SELECT *
+FROM armory_item;
+
+SELECT *
+FROM armory_item
+LIMIT 5;
+
+SELECT name
+from armory_item;
+
+SELECT name, weight
+FROM armory_item;
+
+SELECT name
+FROM armory_item
+WHERE name ='Qui';
+
+SELECT *
+FROM armory_item
+WHERE name ='Qui';
+
+SELECT *
+FROM armory_item
+WHERE weight = 0;
+
+SELECT *
+FROM armory_item
+WHERE name like 'Qui%';
+
+SELECT *
+FROM armory_item
+WHERE name like '%ui%';
+
+SELECT *
+FROM armory_item
+WHERE weight = 1;
+
+SELECT *
+FROM armory_item
+WHERE weight &lt;&gt; 0;
+
+SELECT *
+FROM armory_item
+WHERE weight is NOT NULL;
+
+SELECT *
+FROM armory_item
+WHERE weight is NULL;
+
+SELECT *
+FROM armory_item
+WHERE weight = 0
+AND value = 0;
+
+SELECT count(*)
+FROM armory_item;
+
+SELECT count(*)
+FROM armory_weapon;
+
+SELECT *
+FROM armory_item;
+
+SELECT *
+FROM armory_weapon;
+
+SELECT ai.*, aw.*
+FROM armory_item as ai
+JOIN armory_weapon as aw
+ON ai.item_id=aw.item_ptr_id;
+
+SELECT count(*)
+FROM charactercreator_character;
+
+SELECT count(*)
+FROM charactercreator_cleric;
+
+SELECT ch.*, cl.*
+FROM charactercreator_character as ch
+JOIN charactercreator_cleric as cl
+ON ch.character_id=cl.character_ptr_id;
+
+SELECT mg.*, nc.talisman_charged
+FROM charactercreator_mage as mg
+JOIN charactercreator_necromancer as nc
+ON mg.character_ptr_id=nc.mage_ptr_id
+
+SELECT ch.*, chi.*
+FROM charactercreator_character as ch
+JOIN charactercreator_character_inventory as chi
+ON ch.character_id = chi.character_id;
+
+SELECT count(item_id)
+FROM charactercreator_character_inventory
+GROUP BY character_id;
+
+SELECT count(item_id)
+FROM charactercreator_character_inventory
+WHERE item_id &gt;= 138
+GROUP BY character_id;
+
+SELECT count(item_id)
+FROM charactercreator_character_inventory as chi
+JOIN armory_weapon as aw
+ON chi.item_id=aw.item_ptr_id
+GROUP BY character_id;
+
+SELECT avg(c)
+FROM 
+(SELECT count(item_id) as c
+FROM charactercreator_character_inventory
+GROUP BY character_id
+);
+
+SELECT character_id, count(item_id)
+FROM charactercreator_character_inventory
+GROUP BY character_id;
+
+SELECT count(item_id)
+FROM
+(SELECT  ai.*
+FROM    armory_item as ai
+LEFT JOIN
+        armory_weapon as aw
+ON      ai.item_id = aw.item_ptr_id
+WHERE   aw.item_ptr_id IS NULL);</sql><sql name="SQL 2">SELECT *
+FROM customers
+WHERE State = 'CA';
+
+SELECT *
+FROM customers
+WHERE State = 'CA'
+AND State = 'NY';
+
+SELECT *
+FROM customers
+WHERE State = 'CA'
+OR State = 'NY';
+
+SELECT *
+FROM customers
+WHERE FirstName = 'Dan';
+</sql><sql name="SQL 3">SELECT count(*)
+FROM review
+
+SELECT count(&quot;User Id&quot;)
+FROM review
+WHERE (Nature &gt;= 100)
+
+SELECT round(avg(Nature), 2)
+FROM review</sql><current_tab id="0"/></tab_sql></sqlb_project>
